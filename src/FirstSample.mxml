@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="955" minHeight="600"
+			   creationComplete="init()"
+			   >
+    <fx:Style>
+        @namespace s "library://ns.adobe.com/flex/spark";
+        @namespace mx "library://ns.adobe.com/flex/mx";
+		.myStyleRed {
+			color:red
+		}
+		.myStyleBlue {
+			color:blue
+		}
+        s|Button {
+            font-size: 18pt
+        }
+    </fx:Style>
+	<fx:Declarations>
+		<!-- 非ビジュアルエレメント (サービス、値オブジェクトなど) をここに配置 -->
+	</fx:Declarations>
+	<fx:Script>
+		<![CDATA[
+			private function method1(val:String):void {
+				l1.text=val;
+				l2.text=val;
+				trace(val);
+			}
+		]]>
+	</fx:Script>
+	<fx:Script source="includes/Sample1.as"/>
+	<s:layout>
+		<s:BasicLayout/>
+	</s:layout>
+	<s:VGroup paddingTop="10" paddingBottom="10" paddingLeft="10" paddingRight="10">
+		<s:HGroup>
+			<s:Label id='l1' styleName='myStyleRed' text="label1" />
+			<s:Label id='l2' styleName='myStyleBlue' text="label2" />
+		</s:HGroup>	
+		<s:HGroup>
+			<s:Button id="b1" label="Button1" click="method1('Button1 clicked!');" />
+			<s:Button id="b2" label="Button2" click="method2('Button2 clicked!');" />
+			<s:Button id="b3" label="Button3" />
+		</s:HGroup>
+	</s:VGroup>
+</s:Application>
